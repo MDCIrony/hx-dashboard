@@ -1,0 +1,60 @@
+/* Modal: vehicle detail overlay, comm/ffc boxes, priority sections, component bars.
+   Note: badge styles (.badge, .b-*) and validation banners (.val-*) live in table.css. */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:300;align-items:center;justify-content:center;backdrop-filter:blur(2px);}
+.overlay.open{display:flex;}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px;width:620px;max-height:84vh;overflow-y:auto;position:relative;box-shadow:0 16px 60px rgba(0,0,0,0.15);}
+.modal-x{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--text-muted);font-size:20px;cursor:pointer;line-height:1;}
+.modal-x:hover{color:var(--text);}
+.modal-veh{font-family:var(--mono);font-size:20px;font-weight:700;margin-bottom:2px;color:var(--veh-color);}
+.modal-guardian{font-family:var(--mono);font-size:11px;color:var(--text-muted);margin-bottom:4px;padding:5px 10px;background:var(--surface2);border-radius:5px;border:1px solid var(--border);display:inline-block;}
+.modal-meta{font-size:12px;color:var(--text-dim);margin:6px 0 16px;}
+
+/* Communication box */
+.comm-box{border-radius:8px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;gap:14px;}
+.comm-box.crit{background:var(--sincom-bg);border:1px solid var(--sincom-bd);}
+.comm-box.warn{background:var(--p2-bg);border:1px solid var(--p2-bd);}
+.comm-box.ok{background:var(--ok-bg);border:1px solid var(--ok-bd);}
+.comm-box.none{background:var(--sd-bg);border:1px solid var(--sd-bd);}
+.comm-big{font-family:var(--mono);font-size:26px;font-weight:700;line-height:1;}
+.comm-big.crit{color:var(--sincom);}
+.comm-big.warn{color:var(--p2);}
+.comm-big.ok{color:var(--ok);}
+.comm-big.none{color:var(--sd);}
+.comm-label{font-size:11px;color:var(--text-dim);margin-top:3px;}
+.comm-date{font-family:var(--mono);font-size:11px;color:var(--text-muted);}
+.comm-status-badge{margin-left:auto;}
+
+/* FFC box */
+.ffc-box{border-radius:8px;padding:12px 16px;margin-bottom:14px;background:var(--ffc-bg);border:1px solid var(--ffc-bd);}
+.ffc-box-title{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--ffc);margin-bottom:10px;}
+.ffc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.ffc-item-label{font-size:10px;color:var(--text-muted);margin-bottom:3px;}
+.ffc-item-val{font-family:var(--mono);font-size:14px;font-weight:700;}
+.ffc-item-val.ok{color:var(--ok);}
+.ffc-item-val.crit{color:var(--sincom);}
+.ffc-item-val.warn{color:var(--p2);}
+.ffc-item-val.none{color:var(--sd);}
+
+/* Section title + rows */
+.ms-title{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-muted);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+.mrow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.mrow-l{color:var(--text-muted);font-family:var(--mono);font-size:11px;}
+
+/* Priority sections */
+.prio-section{margin-bottom:14px;}
+.prio-header{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.prio-tag{font-family:var(--mono);font-size:9px;padding:2px 8px;border-radius:3px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.prio-tag.p1{background:var(--p1-bg);color:var(--p1);border:1px solid var(--p1-bd);}
+.prio-tag.p2{background:var(--p2-bg);color:var(--p2);border:1px solid var(--p2-bd);}
+.prio-tag.p3{background:var(--otra-bg);color:var(--otra);border:1px solid var(--otra-bd);}
+
+/* Component rows */
+.ccomp-row{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;margin-bottom:3px;border-radius:5px;background:var(--surface2);border:1px solid var(--border);}
+.ccomp-row.failing-p1{border-color:var(--p1-bd);background:var(--p1-bg);}
+.ccomp-row.failing-p2{border-color:var(--p2-bd);background:var(--p2-bg);}
+.ccomp-row.failing-p3{border-color:var(--otra-bd);background:var(--otra-bg);}
+.ccomp-name{font-family:var(--mono);font-size:12px;color:var(--text-dim);}
+.ccomp-right{display:flex;align-items:center;gap:8px;}
+.cbar{width:80px;height:5px;background:var(--border2);border-radius:3px;overflow:hidden;}
+.cbar-fill{height:100%;border-radius:3px;}
+.cpct{font-family:var(--mono);font-size:12px;min-width:40px;text-align:right;}

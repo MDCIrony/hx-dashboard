@@ -1,0 +1,9 @@
+/* Filters bar: labels, inputs, result count */
+.filters{background:var(--surface);border-bottom:1px solid var(--border);padding:9px 24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+.fl{font-family:var(--mono);font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;}
+.finput{background:var(--surface2);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:12px;padding:6px 10px;border-radius:5px;outline:none;transition:border-color .15s;}
+.finput:focus{border-color:var(--accent);}
+.finput::placeholder{color:var(--text-muted);}
+input.finput{width:200px;}
+select.finput{cursor:pointer;}
+.res-count{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--text-muted);}

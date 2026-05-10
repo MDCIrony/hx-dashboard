@@ -1,0 +1,17 @@
+/* Design tokens: color palette, typography variables shared across all components */
+:root {
+  --bg:#f5f7fa; --surface:#fff; --surface2:#f0f4f8; --border:#dde3ec; --border2:#c8d2de;
+  --ok:#16a34a; --ok-bg:#f0fdf4; --ok-bd:#bbf7d0;
+  --p1:#dc2626; --p1-bg:#fff5f5; --p1-bd:#fecaca;
+  --p2:#d97706; --p2-bg:#fffbeb; --p2-bd:#fde68a;
+  --sincom:#b45309; --sincom-bg:#fef3c7; --sincom-bd:#fcd34d;
+  --otra:#7c3aed; --otra-bg:#f5f3ff; --otra-bd:#ddd6fe;
+  --sd:#9ca3af; --sd-bg:#f9fafb; --sd-bd:#e5e7eb;
+  --ffc:#0891b2; --ffc-bg:#ecfeff; --ffc-bd:#a5f3fc;
+  --ffc-err:#dc2626; --ffc-warn:#d97706;
+  --text:#1e293b; --text-dim:#475569; --text-muted:#94a3b8;
+  --accent:#2563eb;
+  --veh-color:#15803d; --veh-bg:#dcfce7; --veh-bd:#bbf7d0;
+  --mono:'IBM Plex Mono', monospace;
+  --sans:'IBM Plex Sans', sans-serif;
+}

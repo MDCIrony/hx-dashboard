@@ -1,0 +1,7 @@
+/* Alert banner: sticky banner for "sin comunicación" counts with blinking icon */
+.alert-banner{background:var(--sincom-bg);border-bottom:1px solid var(--sincom-bd);padding:9px 24px;display:flex;align-items:center;gap:12px;}
+.alert-icon{font-size:16px;animation:blink 2s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.alert-text{color:var(--sincom);font-weight:600;font-size:13px;}
+.alert-sub{color:var(--text-muted);font-size:11px;}
+.alert-count{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--sincom);margin-left:auto;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}

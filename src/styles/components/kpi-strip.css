@@ -1,0 +1,22 @@
+/* KPI strip: filter cards with pie, label, big number and description */
+.kpi-strip{background:var(--surface);border-bottom:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,0.04);padding:0 24px;}
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);}
+.kpi-card{padding:14px 16px 14px 0;border-right:1px solid var(--border);cursor:pointer;transition:opacity .15s;position:relative;display:flex;align-items:center;gap:12px;}
+.kpi-card:last-child{border-right:none;}
+.kpi-card:hover{opacity:.8;}
+.kpi-card.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;border-radius:2px 2px 0 0;}
+.kpi-card[data-f="all"].active::after{background:var(--accent);}
+.kpi-card[data-f="sin_comunicacion"].active::after{background:var(--sincom);}
+.kpi-card[data-f="falla_p1"].active::after{background:var(--p1);}
+.kpi-card[data-f="falla_p2"].active::after{background:var(--p2);}
+.kpi-card[data-f="ok"].active::after{background:var(--ok);}
+.kpi-pie{flex-shrink:0;}
+.kpi-label{font-family:var(--mono);font-size:9px;letter-spacing:.10em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;display:flex;align-items:center;gap:4px;}
+.kpi-badge{font-family:var(--mono);font-size:8px;padding:1px 5px;border-radius:3px;font-weight:700;}
+.kpi-num{font-family:var(--mono);font-size:26px;font-weight:700;line-height:1;}
+.kpi-num.c-all{color:var(--text);}
+.kpi-num.c-ok{color:var(--ok);}
+.kpi-num.c-p1{color:var(--p1);}
+.kpi-num.c-p2{color:var(--p2);}
+.kpi-num.c-sc{color:var(--sincom);}
+.kpi-desc{font-size:10px;color:var(--text-muted);margin-top:3px;line-height:1.3;}
