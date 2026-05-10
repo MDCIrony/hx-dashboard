@@ -1,0 +1,8 @@
+account,fleet,start_date,period_days,vehicle,device_id,software_version,last_contact_utc,contact_age_days,operating_time_hrs,mobile_time_hrs,distance_travelled_kms,restarts,heartbeats_per_hour,fatigue_events,distraction_events,acceleration_events,overspeed_events,operator_events,fov_exceptions,fov_in_progress,tracking,buzzer,camera,camera_detection,ffc_data,ffc_detection,ffc_streaming,gps_detection,gps_coverage,ir,psu,vib_motor
+(SMLA) ACME,(SMLA) ACME-FLEET-A,2026-05-03,7,VEH001,DEV-001,1.0,2026-05-09 10:00:00,0.5,10,5,100,1,5,0,0,0,0,0,0,0.5,0.8,1.0,0.95,1.0,0.95,1.0,0.99,1.0,0.99,1.0,1.0,0.98
+(SMLA) ACME,(SMLA) ACME-FLEET-A,2026-05-03,7,VEH002,DEV-002,1.0,2026-05-01 10:00:00,9.0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,
+(SMLA) ACME,(SMLA) ACME-FLEET-A,2026-05-03,7,VEH003,DEV-003,1.0,2026-05-09 10:00:00,0.5,5,2,50,0,2,0,0,0,0,0,0,0.2,0.5,0.6,0.7,1.0,0.95,1.0,0.99,1.0,0.99,1.0,1.0,0.98
+ACME2,ACME2-FLEET-B,2026-05-03,7,VEH004,,1.0,2026-05-09 10:00:00,0.5,5,2,50,0,2,0,0,0,0,0,0,,,,,,,,,,,,
+ACME2,ACME2-FLEET-B,2026-05-03,7,VEH005,DEV-005,1.0,2026-05-09 10:00:00,0.5,5,2,50,0,2,0,0,0,0,0,0,0.95,0.99,1.0,0.95,1.0,0.95,1.0,0.99,1.0,0.99,1.0,1.0,0.85
+ACME2,ACME2-FLEET-B,2026-05-03,7,VEH005,DEV-005,1.0,2026-05-09 11:00:00,0.3,5,2,50,0,2,0,0,0,0,0,0,0.95,0.99,1.0,0.95,1.0,0.95,1.0,0.99,1.0,0.99,1.0,1.0,0.85
+"Quote, Test","Quote, Fleet",2026-05-03,7,VEH006,DEV-006,1.0,2026-05-09 10:00:00,0.5,5,2,50,0,2,0,0,0,0,0,0,1.0,0.99,1.0,0.95,1.0,0.95,1.0,0.99,1.0,0.99,1.0,1.0,0.98
