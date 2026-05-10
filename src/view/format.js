@@ -1,29 +1,11 @@
 // src/view/format.js
+export { ageLbl, dateLbl } from '../shared/format-date.js';
 
 export function escapeHtml(s) {
   if (s === null || s === undefined) return '';
   return String(s)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-}
-
-export function ageLbl(days) {
-  if (days === null || days === undefined) return null;
-  const h = days * 24;
-  if (h < 1) return Math.round(h * 60) + 'min';
-  if (h < 24) return h.toFixed(1) + 'h';
-  return days.toFixed(1) + 'd';
-}
-
-export function dateLbl(utcStr) {
-  if (!utcStr) return '';
-  try {
-    return new Date(utcStr.replace(' ', 'T') + 'Z').toLocaleString('es-CL', {
-      timeZone: 'America/Santiago',
-      day: '2-digit', month: '2-digit', year: 'numeric',
-      hour: '2-digit', minute: '2-digit'
-    });
-  } catch { return ''; }
 }
 
 export function pct(v, total) {

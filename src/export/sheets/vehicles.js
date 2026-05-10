@@ -2,7 +2,7 @@
 import * as XLSX from 'xlsx';
 import { C, cell, header, statusStyle, contactStyle, errStyle } from '../xlsx-styles.js';
 import { STATUS_LABELS, COMP_LABELS } from '../../domain/rules.js';
-import { dateLbl } from '../../view/format.js';
+import { dateLbl } from '../../shared/format-date.js';
 
 function setVal(ws, r, c, val, style) {
   const addr = XLSX.utils.encode_cell({ r, c });
