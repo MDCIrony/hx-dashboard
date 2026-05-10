@@ -38,6 +38,14 @@ describe('mergeFleetData', () => {
     expect(v4.ffc).toBeNull();
   });
 
+  it('vehículo con device_id sin match en Grafana → ffc null', () => {
+    const merged = mergeFleetData(parsePerformance(perfCsv), parseGrafana(grafCsv));
+    // VEH002 tiene device_id DEV-002 que NO existe en grafana-sample.csv
+    const v2 = merged.find(v => v.vehicle === 'VEH002');
+    expect(v2).toBeDefined();
+    expect(v2.ffc).toBeNull();
+  });
+
   it('grafana huérfano (sin vehículo) se descarta', () => {
     const merged = mergeFleetData(parsePerformance(perfCsv), parseGrafana(grafCsv));
     expect(merged.find(v => v.device_id === 'DEV-999')).toBeUndefined();

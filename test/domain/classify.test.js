@@ -65,4 +65,12 @@ describe('classifyVehicle', () => {
     const v = classifyVehicle(vehicle({ comps: { ...vehicle().comps, buzzer: 0.5, tracking: 0.5 } }));
     expect(v.failed_components.map(f => f.priority)).toEqual([1, 2]);
   });
+
+  it('contact_age_days > 3 gana sobre falla P1', () => {
+    const v = classifyVehicle(vehicle({
+      contact_age_days: 10,
+      comps: { ...vehicle().comps, tracking: 0.1 }
+    }));
+    expect(v.status).toBe('sin_comunicacion');
+  });
 });
