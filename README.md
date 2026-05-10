@@ -206,7 +206,7 @@ Salida: HTML/CSS/JS estático en `dist/`. No requiere servidor en runtime.
 
 ### Setup inicial
 1. En GitHub: **Settings → Pages → Source: GitHub Actions**.
-2. Ajustar `vite.config.js`: si el repo se llama distinto a `dashboard`, cambiar `base: '/dashboard/'` por `base: '/<nombre-del-repo>/'`.
+2. Verificar `vite.config.js`: `base: '/hx-dashboard/'` debe coincidir con el nombre del repo en GitHub. Si renombrás el repo, actualizar acá.
 3. Push a `main`.
 
 El workflow `.github/workflows/pages.yml`:
