@@ -1,12 +1,13 @@
 // src/view/components/empty-state.js
 // (el CSS se importa de manera centralizada desde src/main.js)
+import logoUrl from '../../assets/logo.png';
 
 export function emptyStateView({ onPickPerf, onPickGraf, onApply, perfName, grafName, ready }) {
   const root = document.createElement('section');
   root.className = 'empty-state';
   root.innerHTML = `
     <div class="empty-card">
-      <div class="empty-logo"><img src="./logo.png" alt="Hx"></div>
+      <div class="empty-logo"><img alt="Hx"></div>
       <h1 class="empty-title">Hx Performance — Monitoreo de Componentes</h1>
       <p class="empty-sub">Subí los dos CSV para comenzar.</p>
       <div class="empty-rows">
@@ -26,6 +27,7 @@ export function emptyStateView({ onPickPerf, onPickGraf, onApply, perfName, graf
       <input type="file" accept=".csv" data-file-graf hidden>
     </div>
   `;
+  root.querySelector('.empty-logo img').src = logoUrl;
   const fp = root.querySelector('[data-file-perf]');
   const fg = root.querySelector('[data-file-graf]');
   root.querySelector('[data-pick-perf]').addEventListener('click', () => fp.click());
