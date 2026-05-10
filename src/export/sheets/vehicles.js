@@ -21,7 +21,7 @@ export function buildVehiclesSheet({ vehicles }) {
   });
   ws['!ref'] = XLSX.utils.encode_range({ s: { r: 0, c: 0 }, e: { r: vehicles.length, c: headers.length - 1 } });
   ws['!cols'] = [{wch:14},{wch:22},{wch:22},{wch:26},{wch:22},{wch:48},{wch:16},{wch:22},{wch:16},{wch:22},{wch:10},{wch:14}];
-  ws['!rows'] = [{ hpt: 22 }];
+  ws['!rows'] = [{ hpt: 22 }, ...vehicles.map(() => ({ hpt: 18 }))];
 
   vehicles.forEach((v, i) => {
     const r = i + 1;
@@ -48,7 +48,6 @@ export function buildVehiclesSheet({ vehicles }) {
     setVal(ws, r, 9, dateLbl(v.ffc?.lastComms) || 'SIN FFC', contactStyle(v.ffc?.days ?? null));
     setVal(ws, r, 10, v.ffc?.sdErrors ?? '—', errStyle(v.ffc?.sdErrors ?? null));
     setVal(ws, r, 11, v.ffc?.videoErrors ?? '—', errStyle(v.ffc?.videoErrors ?? null));
-    ws['!rows'].push({ hpt: 18 });
   });
   return ws;
 }
