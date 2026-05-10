@@ -66,6 +66,7 @@ export function mount(container, store, controller, exportFn) {
   }
 
   function buildEmpty() {
+    if (view.refs.modal && typeof view.refs.modal._destroy === 'function') view.refs.modal._destroy();
     container.replaceChildren(toast);
     const empty = emptyStateView({
       onPickPerf: f => pickFile('perf', f),
@@ -79,6 +80,7 @@ export function mount(container, store, controller, exportFn) {
   }
 
   function buildFull() {
+    if (view.refs.modal && typeof view.refs.modal._destroy === 'function') view.refs.modal._destroy();
     container.replaceChildren(toast);
     const uploadPanel = uploadPanelView({
       onPickPerf: f => pickFile('perf', f),

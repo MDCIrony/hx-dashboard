@@ -23,9 +23,25 @@ export function vehicleModalView() {
       </div>
     </div>
   `;
-  root.querySelector('[data-close]').addEventListener('click', () => root.classList.remove('open'));
-  root.addEventListener('click', e => { if (e.target === root) root.classList.remove('open'); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') root.classList.remove('open'); });
+  function close() { root.classList.remove('open'); }
+  function onKeydown(e) { if (e.key === 'Escape') close(); }
+
+  root.querySelector('[data-close]').addEventListener('click', close);
+  root.addEventListener('click', e => { if (e.target === root) close(); });
+
+  // attach/detach global keydown only while modal is open
+  const observer = new MutationObserver(() => {
+    if (root.classList.contains('open')) document.addEventListener('keydown', onKeydown);
+    else document.removeEventListener('keydown', onKeydown);
+  });
+  observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+
+  // expose teardown for callers that detach the modal
+  root._destroy = () => {
+    observer.disconnect();
+    document.removeEventListener('keydown', onKeydown);
+  };
+
   return root;
 }
 
