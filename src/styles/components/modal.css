@@ -1,13 +1,17 @@
 /* Modal: vehicle detail overlay, comm/ffc boxes, priority sections, component bars.
    Note: badge styles (.badge, .b-*) and validation banners (.val-*) live in table.css. */
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:300;align-items:center;justify-content:center;backdrop-filter:blur(2px);}
-.overlay.open{display:flex;}
-.modal{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px;width:620px;max-height:84vh;overflow-y:auto;position:relative;box-shadow:0 16px 60px rgba(0,0,0,0.15);}
-.modal-x{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--text-muted);font-size:20px;cursor:pointer;line-height:1;}
-.modal-x:hover{color:var(--text);}
-.modal-veh{font-family:var(--mono);font-size:20px;font-weight:700;margin-bottom:2px;color:var(--veh-color);}
-.modal-guardian{font-family:var(--mono);font-size:11px;color:var(--text-muted);margin-bottom:4px;padding:5px 10px;background:var(--surface2);border-radius:5px;border:1px solid var(--border);display:inline-block;}
-.modal-meta{font-size:12px;color:var(--text-dim);margin:6px 0 16px;}
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:300;align-items:center;justify-content:center;backdrop-filter:blur(2px);}
+#overlay.open{display:flex;}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:12px;width:620px;max-height:84vh;overflow-y:auto;position:relative;box-shadow:0 16px 60px rgba(0,0,0,0.15);}
+.m-head{display:flex;align-items:flex-start;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);}
+.m-close{background:transparent;border:none;font-size:18px;cursor:pointer;color:var(--text-muted);line-height:1;}
+.m-close:hover{color:var(--text);}
+.m-veh{font-family:var(--mono);font-size:20px;font-weight:700;margin-bottom:2px;color:var(--veh-color);}
+.m-guardian{font-family:var(--mono);font-size:11px;color:var(--text-muted);margin-bottom:4px;padding:5px 10px;background:var(--surface2);border-radius:5px;border:1px solid var(--border);display:inline-block;}
+.m-meta{font-size:12px;color:var(--text-dim);margin:6px 0 0;}
+.m-body{padding:16px 20px;}
+.m-empty{color:var(--text-muted);font-size:13px;padding:10px 0;}
+.m-warn{font-family:var(--mono);font-size:13px;color:var(--p1);padding:10px 0;}
 
 /* Communication box */
 .comm-box{border-radius:8px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;gap:14px;}
@@ -34,6 +38,8 @@
 .ffc-item-val.crit{color:var(--sincom);}
 .ffc-item-val.warn{color:var(--p2);}
 .ffc-item-val.none{color:var(--sd);}
+.ffc-item-date{font-size:10px;color:var(--text-muted);}
+.ffc-empty{font-family:var(--mono);font-size:12px;color:var(--text-muted);}
 
 /* Section title + rows */
 .ms-title{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-muted);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);}
