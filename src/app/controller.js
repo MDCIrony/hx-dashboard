@@ -52,10 +52,10 @@ export function getFilteredVehicles(state) {
     if (priority && v.status !== priority) return false;
     if (search) {
       const s = search;
-      if (!v.vehicle.toLowerCase().includes(s)
-        && !v.account.toLowerCase().includes(s)
+      if (!(v.vehicle || '').toLowerCase().includes(s)
+        && !(v.account || '').toLowerCase().includes(s)
         && !(v.device_id || '').toLowerCase().includes(s)
-        && !v.fleet.toLowerCase().includes(s)) return false;
+        && !(v.fleet || '').toLowerCase().includes(s)) return false;
     }
     if (component && !v.failed_components.some(fc => fc.component === component)) return false;
     return true;

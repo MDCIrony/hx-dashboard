@@ -19,8 +19,9 @@ export function buildGlobalStats(vehicles) {
 export function buildAccountStats(vehicles) {
   const byAcct = new Map();
   for (const v of vehicles) {
-    if (!byAcct.has(v.account)) byAcct.set(v.account, { account: v.account, ...emptyStats() });
-    addToStats(byAcct.get(v.account), v.status);
+    const key = v.account || '(sin cuenta)';
+    if (!byAcct.has(key)) byAcct.set(key, { account: key, ...emptyStats() });
+    addToStats(byAcct.get(key), v.status);
   }
   return Array.from(byAcct.values()).sort((a, b) => a.account.localeCompare(b.account));
 }
