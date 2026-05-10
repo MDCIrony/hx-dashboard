@@ -1,8 +1,8 @@
 // src/view/render.js
 import { emptyStateView } from './components/empty-state.js';
 import { headerView, updateHeaderTs } from './components/header.js';
-import { kpiStripView, updateKpis } from './components/kpi-strip.js';
-import { filtersView, updateAccountOptions, updateCount } from './components/filters.js';
+import { kpiStripView, updateKpis, updateActiveFilter } from './components/kpi-strip.js';
+import { filtersView, updateAccountOptions, syncFilterInputs, updateCount } from './components/filters.js';
 import { alertBannerView, updateAlertCount } from './components/alert-banner.js';
 import { vehicleTableView, updateTable } from './components/vehicle-table.js';
 import { vehicleModalView, showVehicle } from './components/vehicle-modal.js';
@@ -120,8 +120,10 @@ export function mount(container, store, controller, exportFn) {
     if (view.mode === 'full') {
       const stats = getAccountStats(state);
       updateKpis(view.refs.kpi, stats);
+      updateActiveFilter(view.refs.kpi, state.ui.filter);
       updateAlertCount(view.refs.banner, stats.sin_comunicacion || 0);
-      updateAccountOptions(view.refs.filters, state.data.accounts);
+      updateAccountOptions(view.refs.filters, state.data.accounts, state.ui.account);
+      syncFilterInputs(view.refs.filters, state.ui);
       const filtered = getFilteredVehicles(state);
       updateCount(view.refs.filters, filtered.length);
       updateTable(view.refs.table, {

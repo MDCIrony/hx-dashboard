@@ -33,15 +33,29 @@ export function filtersView({ onSearch, onAccount, onComponent, onPriority }) {
   return root;
 }
 
-export function updateAccountOptions(root, accounts) {
+export function updateAccountOptions(root, accounts, currentAccount = '') {
   const sel = root.querySelector('[data-account]');
-  while (sel.options.length > 1) sel.remove(1);
-  accounts.slice().sort((a,b) => a.account.localeCompare(b.account)).forEach(a => {
-    const o = document.createElement('option');
-    o.value = a.account;
-    o.textContent = `${a.account} (${a.total})`;
-    sel.appendChild(o);
-  });
+  const signature = accounts.map(a => a.account + ':' + a.total).join('|');
+  if (sel._signature !== signature) {
+    while (sel.options.length > 1) sel.remove(1);
+    accounts.slice().sort((a, b) => a.account.localeCompare(b.account)).forEach(a => {
+      const o = document.createElement('option');
+      o.value = a.account;
+      o.textContent = `${a.account} (${a.total})`;
+      sel.appendChild(o);
+    });
+    sel._signature = signature;
+  }
+  if (sel.value !== currentAccount) sel.value = currentAccount;
+}
+
+export function syncFilterInputs(root, ui) {
+  const search = root.querySelector('[data-search]');
+  if (document.activeElement !== search && search.value !== ui.search) search.value = ui.search;
+  const comp = root.querySelector('[data-component]');
+  if (comp.value !== ui.component) comp.value = ui.component;
+  const prio = root.querySelector('[data-priority]');
+  if (prio.value !== ui.priority) prio.value = ui.priority;
 }
 
 export function updateCount(root, n) {

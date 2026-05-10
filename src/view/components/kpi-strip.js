@@ -30,6 +30,13 @@ export function kpiStripView({ onFilter }) {
   return root;
 }
 
+export function updateActiveFilter(root, filter) {
+  const target = filter || 'all';
+  root.querySelectorAll('.kpi-card').forEach(card => {
+    card.classList.toggle('active', card.dataset.f === target);
+  });
+}
+
 export function updateKpis(root, stats) {
   const total = stats?.total || 0;
   for (const k of KPIS) {
